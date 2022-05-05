@@ -1,0 +1,10 @@
+<%- include('header'); -%>
+
+<ul>
+  <% members.forEach((foodMember) => { %>
+  <li><%= foodMember.name%></li>
+  <button onclick="location.href='/member/<%= foodMember._id%>'">Visa medlem</button>
+  <% }); %>
+</ul>
+
+<%- include('footer'); -%>

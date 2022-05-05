@@ -1,0 +1,13 @@
+<%- include('header'); -%>
+<form method="post"action="/member/add">
+    <label for="fname">Namn:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="email">Email adress:</label>
+    <input type="text" id="email" name="email"><br><br>
+    <label for="phonenumber">Telefonnummer:</label>
+    <input type="tel" id="phonenumber" name="phonenumber"><br><br>
+    <label for="favfood">Favoriträtt</label>
+    <input type="text" id="favfood" name="favfood"><br><br>
+    <input type="submit" value="Lägg till">
+  </form>
+<%- include('footer'); -%>

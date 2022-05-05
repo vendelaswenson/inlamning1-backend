@@ -1,0 +1,8 @@
+<%- include('header'); -%>
+<h3><%= clubMember.name%></h3>
+<p><%= clubMember.email%></p>
+<p><%= clubMember.phonenumber%></p>
+<p><%= clubMember.favfood%></p>
+<p><%= clubMember.createdAt%></p>
+<button onclick="location.href='/member/<%=clubMember._id%>/delete' ">Ta bort medlem</button>
+<%- include('footer'); -%>

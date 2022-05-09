@@ -5,4 +5,12 @@
 <p><%= clubMember.favfood%></p>
 <p><%= clubMember.createdAt%></p>
 <button onclick="location.href='/member/<%=clubMember._id%>/delete' ">Ta bort medlem</button>
+
+<form action="/member/update/<%=clubMember._id%>" >
+        <input type="text" name="memberName" value="<%= clubMember.name %>" /><br><br>
+        <input type="text" name="memberNumber" value="<%= clubMember.phonenumber %>" /><br><br>
+        <input type="text" name="memberEmail" value="<%= clubMember.email %>" /><br><br>
+        <input type="text" name="memberFavDish" value="<%= clubMember.favfood %>" /><br><br>
+        <input type="submit" value="Ändra uppgifter"/><br><br><hr>
+</form>
 <%- include('footer'); -%>

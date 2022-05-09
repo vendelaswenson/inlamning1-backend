@@ -27,15 +27,38 @@ app.get('/members', async(req, res) => {
 });
 
 app.get('/member/:id', async (req, res) => {
+  const members = await dbMembers.find({}).toArray()
   const clubMember = await dbMembers.findOne({ _id: ObjectId(req.params.id) });
   res.render('member', {
-    clubMember
+    members,
+    clubMember,
   });
 });
 
 app.get('/add', (req, res) => {
   res.render('add');
 });
+
+
+app.get('/members/sort/1', async (req, res) => {
+  const members = await dbMembers.find({}).sort({name: 1}).toArray();
+  res.render('members', {
+    members
+  })
+})
+app.get('/members/sort/2', async (req, res) => {
+  const members = await dbMembers.find({}).sort({name: -1}).toArray();
+  res.render('members', {
+    members
+  })
+})
+
+
+app.get('/member/update/:id', async (req, res) => {
+  await dbMembers.updateOne({ _id: ObjectId(req.params.id)}, {$set: {...req.body} });
+  res.redirect('/members');
+})
+
 
 app.post('/member/add', async (req, res) => {
   await dbMembers.insertOne({
@@ -48,7 +71,7 @@ app.post('/member/add', async (req, res) => {
 app.get('/member/:id/delete', async (req, res) => {
   const delMember = await dbMembers.findOne({ _id: ObjectId(req.params.id) });
 
-  dbMembers.deleteOne(delMember);
+  db.dbMembers.deleteOne(delMember);
   res.redirect('/members');
 })
 

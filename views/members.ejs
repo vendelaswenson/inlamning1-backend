@@ -1,10 +1,21 @@
 <%- include('header'); -%>
 
+
 <ul>
   <% members.forEach((foodMember) => { %>
   <li><%= foodMember.name%></li>
   <button onclick="location.href='/member/<%= foodMember._id%>'">Visa medlem</button>
   <% }); %>
 </ul>
+
+<select onchange="location=this.value" name="sort" id="sort">
+  <option value="null" selected disabled>Sortera på:</option>
+  <option value="/members/sort/1">Från A till Ö:</option>
+  <option value="/members/sort/2">Från Ö till A:</option>
+  <option value="/members">Initial ordning:</option>
+</select>
+
+
+
 
 <%- include('footer'); -%>

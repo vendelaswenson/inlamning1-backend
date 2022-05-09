@@ -54,8 +54,9 @@ app.get('/members/sort/2', async (req, res) => {
 })
 
 
-app.get('/member/update/:id', async (req, res) => {
-  await dbMembers.updateOne({ _id: ObjectId(req.params.id)}, {$set: {...req.body} });
+app.post('/member/update/:id', async (req, res) => {
+  console.log(req.body);
+  await dbMembers.updateOne({ _id: ObjectId(req.params.id)}, {$set: {...req.body}});
   res.redirect('/members');
 })
 
